@@ -1,0 +1,10 @@
+{
+  "ciutats": {
+    "tokyo": "+9",
+    "argentina": -3,
+    "palma": "+1",
+    "nueva york": -5,
+    "washington": -5,
+    "londres": "+0"
+  }
+}
