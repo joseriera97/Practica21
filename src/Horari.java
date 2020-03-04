@@ -10,16 +10,15 @@ import java.util.Date;
 import java.util.TimeZone;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
 
-
 /**
- *
  * @author jaumecampsfornari
  */
-public class Horari implements InterficieHorari{
+public class Horari implements InterficieHorari {
     private String urlJson;
 
     public Horari(String urlJson) {
@@ -31,16 +30,16 @@ public class Horari implements InterficieHorari{
         String dbString = "";
         String resposta = "";
         BufferedReader in = null;
-
-        try{
+        JSONObject db;
+        try {
             /*
              * Revisa que la "base de dades" existeix, sinò la crea
              */
             try {
                 in = new BufferedReader(new FileReader(urlJson));
-            } catch(IOException e) {
+            } catch (IOException e) {
 
-                try (BufferedWriter out = new BufferedWriter(new FileWriter(urlJson));){
+                try (BufferedWriter out = new BufferedWriter(new FileWriter(urlJson));) {
                     out.write("{ciutats{}}");
                     out.flush();
                 } catch (IOException x) {
@@ -51,23 +50,33 @@ public class Horari implements InterficieHorari{
                 in = new BufferedReader(new FileReader(urlJson));
             }
             String s;
-            while((s = in.readLine()) != null) {
+            while ((s = in.readLine()) != null) {
                 dbString += s;
             }
             /*
              * Inicialització de la base de dades
              */
-            JSONObject db = new JSONObject(dbString);
+            try {
+                //Intentamos obtener la ciudad
+                db = new JSONObject(dbString);
+            } catch (Exception e) {
+                //No se ha podido obtener devolvemos false...
+                resposta = "false";
+                return resposta;
+            }
             JSONObject ciutats = new JSONObject(db.get("ciutats").toString());
 
             DateFormat format = new SimpleDateFormat("HH:mm:ss");
             format.setTimeZone(TimeZone.getTimeZone("GMT" + ciutats.get(ciutat.toLowerCase())));
             resposta = format.format(new Date());
             return resposta;
-        }catch (IOException e) {
+        } catch (IOException e) {
             System.err.println("Error amb el servidor");
-        }catch (JSONException e) {
-            throw new RemoteException("Ciutat no existent a la base de dades");
+        } catch (JSONException e) {
+            resposta = "false";
+            return resposta;
+            //throw new RemoteException("Ciutat no existent a la base de dades");
+
         }
 
         return resposta;
@@ -75,7 +84,6 @@ public class Horari implements InterficieHorari{
 
     @Override
     public boolean novaCiutat(String ciutat, String hora) throws RemoteException {
-
         SimpleDateFormat format = new SimpleDateFormat("HH");
         format.setTimeZone(TimeZone.getTimeZone("GMT"));
         int gmtHora = Integer.parseInt(format.format(new Date()));
