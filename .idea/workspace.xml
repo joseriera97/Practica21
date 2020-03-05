@@ -2,14 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cb214528-2275-441e-b98f-571f56bc223d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ZonesHoraries.json" beforeDir="false" afterPath="$PROJECT_DIR$/ZonesHoraries.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Practica21/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Practica21/Client.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Practica21/Horari.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Practica21/Horari.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Practica21/Servidor.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Practica21/Servidor.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Horari.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Horari.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -92,6 +85,7 @@
       <workItem from="1583248922553" duration="1598000" />
       <workItem from="1583250570044" duration="1826000" />
       <workItem from="1583339751296" duration="3091000" />
+      <workItem from="1583418615302" duration="383000" />
     </task>
     <servers />
   </component>
